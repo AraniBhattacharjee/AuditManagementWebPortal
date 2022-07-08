@@ -1,0 +1,40 @@
+<style>
+.col-sm {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+<div class="container">
+    <div style="text-align: center;"><h2>Audit Type</h2></div>
+    <div class="card">
+        <div class="row">
+            <div class="card-body">
+                <div class="col-sm">
+                    <button (click)="auditType('Internal')">
+                        <figure>
+                            <img src="assets\Internal.png" height="150" width="70%">
+                            <figcaption>Internal Audit</figcaption>
+                        </figure>
+                    </button>
+                </div>
+
+                <div class="col-sm">
+                    <button (click)="auditType('SOX')">
+                        <figure>
+                            <img src="assets\SOX.png" height="150" width="70%">
+                            <figcaption>SOX Audit</figcaption>
+                        </figure>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

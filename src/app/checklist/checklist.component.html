@@ -1,0 +1,38 @@
+<div class="container">
+    <h2>Check List </h2>
+    <div class="container">
+        <form (ngSubmit)="submit()">
+            <div class="form-group" >
+                <label>Project Name</label>
+                <input class="form-control" type="text" name="projectName" [(ngModel)]= "projectName" required>
+            </div>
+            <div class="form-group">
+                <label>Project Manager Name</label>
+                <input class="form-control" type="text" name="projectManagerName" [(ngModel)]= "projectManagerName" required>
+            </div>
+            <div class="form-group">
+                <label>App Owner Name</label>
+                <input class="form-control" type="text" name="appOwnerName" [(ngModel)]= "appOwnerName" required>
+            </div>
+            <div class="form-group">
+                <label>Project Date</label>
+                <input class="form-control" type="text" name="date" [(ngModel)]= "date" placeholder="dd-MM-yyyy" required>
+            </div>
+            <table>
+                <tbody>
+                    <ng-container *ngFor="let question of questionList | async; let indexOfQuestion = index">
+                        <tr>
+                            <td>{{indexOfQuestion+1}}.</td>
+                            <td style="padding: 5%;">{{question}}</td>
+                            <td style="padding: 5%;"><input type="radio" name="option{{indexOfQuestion}}" value="yes" (click)="submittedAns(indexOfQuestion,$event)">YES</td>
+                            <td style="padding: 5%;"><input type="radio" name="option{{indexOfQuestion}}" value="no" (click)="submittedAns(indexOfQuestion,$event)">NO</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+    
+</div>
+
